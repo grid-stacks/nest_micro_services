@@ -2,15 +2,14 @@ version: '3.9'
 
 services:
   nest_micro_redis:
-    image: redis:7-alpine
+    image: redislabs/redismod
     container_name: nest_micro_redis
     ports:
       - 6380:6379
-    command: redis-server --save 60 1 --requirepass 123456 --loglevel warning
-    # Access command: redis-cli
-    # For auth: auth 123456 (password as in --requirepass)
-    volumes: 
+    command: /usr/local/etc/redis/redis.conf
+    volumes:
       - ./docker/volumes/redis:/data
+      - ./docker/config/redis/redis.conf:/usr/local/etc/redis/redis.conf
     networks:
       - nest_micro
   
