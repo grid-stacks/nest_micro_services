@@ -1,7 +1,7 @@
 version: '3.9'
 
 services:
-  redis:
+  nest_micro_redis:
     image: redis:7-alpine
     container_name: nest_micro_redis
     ports:
@@ -9,9 +9,21 @@ services:
     command: redis-server --save 60 1 --requirepass 123456 --loglevel warning
     # Access command: redis-cli
     # For auth: auth 123456 (password as in --requirepass)
+    volumes: 
+      - ./docker/volumes/redis:/data
     networks:
       - nest_micro
+  
+  nest_micro_redisinsight:
+    image: redislabs/redisinsight:latest
+    container_name: nest_micro_redisinsight
+    ports:
+      - 8380:8001
+    volumes:
+      - ./docker/volumes/redisinsight:/db 
 
 networks:
   nest_micro:
     driver: bridge
+
+# volumes:
