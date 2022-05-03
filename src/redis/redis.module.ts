@@ -1,10 +1,10 @@
 import { Logger, Module } from '@nestjs/common';
 import { RedisService } from './redis.service';
 import { RedisController } from './redis.controller';
-import { RedisConfigModule } from './redis.config.module';
+import { IORedisConfigModule } from './ioredis.config.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 
-export const redisConfigModule = RedisConfigModule.registerAsync({
+export const ioRedisConfigModule = IORedisConfigModule.registerAsync({
   imports: [ConfigModule],
   useFactory: async (configService: ConfigService) => {
     const logger = new Logger('RedisConfigModule');
@@ -35,7 +35,7 @@ export const redisConfigModule = RedisConfigModule.registerAsync({
 });
 
 @Module({
-  imports: [redisConfigModule],
+  imports: [ioRedisConfigModule],
   controllers: [RedisController],
   providers: [RedisService],
 })

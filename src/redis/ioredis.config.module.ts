@@ -8,25 +8,25 @@ import Redis, { RedisOptions } from 'ioredis';
 
 export const IORedisKey = 'IO_Redis';
 
-type RedisModuleOptions = {
+type IORedisModuleOptions = {
   connectionOptions: RedisOptions;
   onClientReady?: (client: Redis) => void;
 };
 
-type RedisAsyncModuleOptions = {
+type IORedisAsyncModuleOptions = {
   useFactory: (
     ...args: any[]
-  ) => Promise<RedisModuleOptions> | RedisModuleOptions;
+  ) => Promise<IORedisModuleOptions> | IORedisModuleOptions;
 } & Pick<ModuleMetadata, 'imports'> &
   Pick<FactoryProvider, 'inject'>;
 
 @Module({})
-export class RedisConfigModule {
+export class IORedisConfigModule {
   static async registerAsync({
     useFactory,
     imports,
     inject,
-  }: RedisAsyncModuleOptions): Promise<DynamicModule> {
+  }: IORedisAsyncModuleOptions): Promise<DynamicModule> {
     const redisProvider = {
       provide: IORedisKey,
       useFactory: async (...args) => {
@@ -42,7 +42,7 @@ export class RedisConfigModule {
     };
 
     return {
-      module: RedisConfigModule,
+      module: IORedisConfigModule,
       imports,
       providers: [redisProvider],
       exports: [redisProvider],
