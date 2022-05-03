@@ -12,8 +12,9 @@ export class RedisService {
   ) {}
 
   async omRedisTest() {
-    //   const setFoo = await this.omRedisClient.set('om', 'om_value');
+    // const setFoo = await this.omRedisClient.set('om', 'om_value');
     const getFoo = await this.omRedisClient.get('om');
+    // await this.omRedisClient.close();
 
     return getFoo;
   }
@@ -21,6 +22,7 @@ export class RedisService {
   async ioRedisTest() {
     // const setFoo = await this.ioRedisClient.set('io', 'io_value');
     const getFoo = await this.ioRedisClient.get('io');
+    // this.ioRedisClient.disconnect();
 
     return getFoo;
   }
