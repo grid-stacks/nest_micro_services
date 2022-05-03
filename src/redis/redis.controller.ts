@@ -9,4 +9,9 @@ export class RedisController {
   async omRedisTest() {
     return await this.redisService.omRedisTest();
   }
+
+  @Get('io_test')
+  async ioRedisTest() {
+    return await this.redisService.ioRedisTest();
+  }
 }
