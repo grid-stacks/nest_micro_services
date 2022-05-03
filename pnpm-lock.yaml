@@ -21,6 +21,7 @@ specifiers:
   ioredis: ^5.0.4
   jest: ^27.2.5
   prettier: ^2.3.2
+  redis-om: ^0.3.1
   reflect-metadata: ^0.1.13
   rimraf: ^3.0.2
   rxjs: ^7.2.0
@@ -39,6 +40,7 @@ dependencies:
   '@nestjs/mapped-types': 1.0.1_87f300ac3462878996740a2ac4414532
   '@nestjs/platform-express': 8.4.4_a78378ec5f3cecc3c353ed91b578f3e6
   ioredis: 5.0.4
+  redis-om: 0.3.1
   reflect-metadata: 0.1.13
   rimraf: 3.0.2
   rxjs: 7.5.5
@@ -512,7 +514,7 @@ packages:
     dev: true
 
   /@ioredis/commands/1.1.1:
-    resolution: {integrity: sha512-fsR4P/ROllzf/7lXYyElUJCheWdTJVJvOTps8v9IWKFATxR61ANOlnoPqhH099xYLrJGpc2ZQ28B3rMeUt5VQg==, tarball: https://hub.chemaxon.com:443/artifactory/api/npm/npm/@ioredis/commands/-/commands-1.1.1.tgz}
+    resolution: {integrity: sha512-fsR4P/ROllzf/7lXYyElUJCheWdTJVJvOTps8v9IWKFATxR61ANOlnoPqhH099xYLrJGpc2ZQ28B3rMeUt5VQg==}
     dev: false
 
   /@istanbuljs/load-nyc-config/1.1.0:
@@ -974,6 +976,55 @@ packages:
       node-fetch: 2.6.7
     transitivePeerDependencies:
       - encoding
+    dev: false
+
+  /@redis/bloom/1.0.2_@redis+client@1.1.0:
+    resolution: {integrity: sha512-EBw7Ag1hPgFzdznK2PBblc1kdlj5B5Cw3XwI9/oG7tSn85/HKy3X9xHy/8tm/eNXJYHLXHJL/pkwBpFMVVefkw==, tarball: https://hub.chemaxon.com:443/artifactory/api/npm/npm/@redis/bloom/-/bloom-1.0.2.tgz}
+    peerDependencies:
+      '@redis/client': ^1.0.0
+    dependencies:
+      '@redis/client': 1.1.0
+    dev: false
+
+  /@redis/client/1.1.0:
+    resolution: {integrity: sha512-xO9JDIgzsZYDl3EvFhl6LC52DP3q3GCMUer8zHgKV6qSYsq1zB+pZs9+T80VgcRogrlRYhi4ZlfX6A+bHiBAgA==, tarball: https://hub.chemaxon.com:443/artifactory/api/npm/npm/@redis/client/-/client-1.1.0.tgz}
+    engines: {node: '>=14'}
+    dependencies:
+      cluster-key-slot: 1.1.0
+      generic-pool: 3.8.2
+      yallist: 4.0.0
+    dev: false
+
+  /@redis/graph/1.0.1_@redis+client@1.1.0:
+    resolution: {integrity: sha512-oDE4myMCJOCVKYMygEMWuriBgqlS5FqdWerikMoJxzmmTUErnTRRgmIDa2VcgytACZMFqpAOWDzops4DOlnkfQ==, tarball: https://hub.chemaxon.com:443/artifactory/api/npm/npm/@redis/graph/-/graph-1.0.1.tgz}
+    peerDependencies:
+      '@redis/client': ^1.0.0
+    dependencies:
+      '@redis/client': 1.1.0
+    dev: false
+
+  /@redis/json/1.0.3_@redis+client@1.1.0:
+    resolution: {integrity: sha512-4X0Qv0BzD9Zlb0edkUoau5c1bInWSICqXAGrpwEltkncUwcxJIGEcVryZhLgb0p/3PkKaLIWkjhHRtLe9yiA7Q==, tarball: https://hub.chemaxon.com:443/artifactory/api/npm/npm/@redis/json/-/json-1.0.3.tgz}
+    peerDependencies:
+      '@redis/client': ^1.0.0
+    dependencies:
+      '@redis/client': 1.1.0
+    dev: false
+
+  /@redis/search/1.0.6_@redis+client@1.1.0:
+    resolution: {integrity: sha512-pP+ZQRis5P21SD6fjyCeLcQdps+LuTzp2wdUbzxEmNhleighDDTD5ck8+cYof+WLec4csZX7ks+BuoMw0RaZrA==, tarball: https://hub.chemaxon.com:443/artifactory/api/npm/npm/@redis/search/-/search-1.0.6.tgz}
+    peerDependencies:
+      '@redis/client': ^1.0.0
+    dependencies:
+      '@redis/client': 1.1.0
+    dev: false
+
+  /@redis/time-series/1.0.3_@redis+client@1.1.0:
+    resolution: {integrity: sha512-OFp0q4SGrTH0Mruf6oFsHGea58u8vS/iI5+NpYdicaM+7BgqBZH8FFvNZ8rYYLrUO/QRqMq72NpXmxLVNcdmjA==, tarball: https://hub.chemaxon.com:443/artifactory/api/npm/npm/@redis/time-series/-/time-series-1.0.3.tgz}
+    peerDependencies:
+      '@redis/client': ^1.0.0
+    dependencies:
+      '@redis/client': 1.1.0
     dev: false
 
   /@sinonjs/commons/1.8.3:
@@ -1930,7 +1981,7 @@ packages:
     dev: true
 
   /cluster-key-slot/1.1.0:
-    resolution: {integrity: sha512-2Nii8p3RwAPiFwsnZvukotvow2rIHM+yQ6ZcBXGHdniadkYGZYiGmkHJIbZPIV9nfv7m/U1IPMVVcAhoWFeklw==, tarball: https://hub.chemaxon.com:443/artifactory/api/npm/npm/cluster-key-slot/-/cluster-key-slot-1.1.0.tgz}
+    resolution: {integrity: sha512-2Nii8p3RwAPiFwsnZvukotvow2rIHM+yQ6ZcBXGHdniadkYGZYiGmkHJIbZPIV9nfv7m/U1IPMVVcAhoWFeklw==}
     engines: {node: '>=0.10.0'}
     dev: false
 
@@ -2143,7 +2194,7 @@ packages:
     dev: true
 
   /denque/2.0.1:
-    resolution: {integrity: sha512-tfiWc6BQLXNLpNiR5iGd0Ocu3P3VpxfzFiqubLgMfhfOw9WyvgJBd46CClNn9k3qfbjvT//0cf7AlYRX/OslMQ==, tarball: https://hub.chemaxon.com:443/artifactory/api/npm/npm/denque/-/denque-2.0.1.tgz}
+    resolution: {integrity: sha512-tfiWc6BQLXNLpNiR5iGd0Ocu3P3VpxfzFiqubLgMfhfOw9WyvgJBd46CClNn9k3qfbjvT//0cf7AlYRX/OslMQ==}
     engines: {node: '>=0.10'}
     dev: false
 
@@ -2769,6 +2820,11 @@ packages:
     resolution: {integrity: sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=}
     dev: true
 
+  /generic-pool/3.8.2:
+    resolution: {integrity: sha512-nGToKy6p3PAbYQ7p1UlWl6vSPwfwU6TMSWK7TTu+WUY4ZjyZQGniGGt2oNVvyNSpyZYSB43zMXVLcBm08MTMkg==, tarball: https://hub.chemaxon.com:443/artifactory/api/npm/npm/generic-pool/-/generic-pool-3.8.2.tgz}
+    engines: {node: '>= 4'}
+    dev: false
+
   /gensync/1.0.0-beta.2:
     resolution: {integrity: sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==}
     engines: {node: '>=6.9.0'}
@@ -3038,7 +3094,7 @@ packages:
     dev: true
 
   /ioredis/5.0.4:
-    resolution: {integrity: sha512-qFJw3MnPNsJF1lcIOP3vztbsasOXK3nDdNAgjQj7t7/Bn/w10PGchTOpqylQNxjzPbLoYDu34LjeJtSWiKBntQ==, tarball: https://hub.chemaxon.com:443/artifactory/api/npm/npm/ioredis/-/ioredis-5.0.4.tgz}
+    resolution: {integrity: sha512-qFJw3MnPNsJF1lcIOP3vztbsasOXK3nDdNAgjQj7t7/Bn/w10PGchTOpqylQNxjzPbLoYDu34LjeJtSWiKBntQ==}
     engines: {node: '>=12.22.0'}
     dependencies:
       '@ioredis/commands': 1.1.1
@@ -3811,11 +3867,11 @@ packages:
     dev: true
 
   /lodash.defaults/4.2.0:
-    resolution: {integrity: sha1-0JF4cW/+pN3p5ft7N/bwgCJ0WAw=, tarball: https://hub.chemaxon.com:443/artifactory/api/npm/npm/lodash.defaults/-/lodash.defaults-4.2.0.tgz}
+    resolution: {integrity: sha1-0JF4cW/+pN3p5ft7N/bwgCJ0WAw=}
     dev: false
 
   /lodash.isarguments/3.1.0:
-    resolution: {integrity: sha1-L1c9hcaiQon/AGY7SRwdM4/zRYo=, tarball: https://hub.chemaxon.com:443/artifactory/api/npm/npm/lodash.isarguments/-/lodash.isarguments-3.1.0.tgz}
+    resolution: {integrity: sha1-L1c9hcaiQon/AGY7SRwdM4/zRYo=}
     dev: false
 
   /lodash.memoize/4.1.2:
@@ -4404,15 +4460,34 @@ packages:
     dev: true
 
   /redis-errors/1.2.0:
-    resolution: {integrity: sha1-62LSrbFeTq9GEMBK/hUpOEJQq60=, tarball: https://hub.chemaxon.com:443/artifactory/api/npm/npm/redis-errors/-/redis-errors-1.2.0.tgz}
+    resolution: {integrity: sha1-62LSrbFeTq9GEMBK/hUpOEJQq60=}
     engines: {node: '>=4'}
     dev: false
 
+  /redis-om/0.3.1:
+    resolution: {integrity: sha512-WX+JPJ4eOiZ0G5//xbF8XFzHUPAmFjqexOKu6wcgNX5d30268z8awriRLSV1/j/LObmHIEZ0XSMGaFFVTK/s2w==, tarball: https://hub.chemaxon.com:443/artifactory/api/npm/npm/redis-om/-/redis-om-0.3.1.tgz}
+    engines: {node: '>= 14'}
+    dependencies:
+      redis: 4.1.0
+      ulid: 2.3.0
+    dev: false
+
   /redis-parser/3.0.0:
-    resolution: {integrity: sha1-tm2CjNyv5rS4pCin3vTGvKwxyLQ=, tarball: https://hub.chemaxon.com:443/artifactory/api/npm/npm/redis-parser/-/redis-parser-3.0.0.tgz}
+    resolution: {integrity: sha1-tm2CjNyv5rS4pCin3vTGvKwxyLQ=}
     engines: {node: '>=4'}
     dependencies:
       redis-errors: 1.2.0
+    dev: false
+
+  /redis/4.1.0:
+    resolution: {integrity: sha512-5hvJ8wbzpCCiuN1ges6tx2SAh2XXCY0ayresBmu40/SGusWHFW86TAlIPpbimMX2DFHOX7RN34G2XlPA1Z43zg==, tarball: https://hub.chemaxon.com:443/artifactory/api/npm/npm/redis/-/redis-4.1.0.tgz}
+    dependencies:
+      '@redis/bloom': 1.0.2_@redis+client@1.1.0
+      '@redis/client': 1.1.0
+      '@redis/graph': 1.0.1_@redis+client@1.1.0
+      '@redis/json': 1.0.3_@redis+client@1.1.0
+      '@redis/search': 1.0.6_@redis+client@1.1.0
+      '@redis/time-series': 1.0.3_@redis+client@1.1.0
     dev: false
 
   /reflect-metadata/0.1.13:
@@ -4666,7 +4741,7 @@ packages:
     dev: true
 
   /standard-as-callback/2.1.0:
-    resolution: {integrity: sha512-qoRRSyROncaz1z0mvYqIE4lCd9p2R90i6GxW3uZv5ucSu8tU7B5HXUP1gG8pVZsYNVaXjk8ClXHPttLyxAL48A==, tarball: https://hub.chemaxon.com:443/artifactory/api/npm/npm/standard-as-callback/-/standard-as-callback-2.1.0.tgz}
+    resolution: {integrity: sha512-qoRRSyROncaz1z0mvYqIE4lCd9p2R90i6GxW3uZv5ucSu8tU7B5HXUP1gG8pVZsYNVaXjk8ClXHPttLyxAL48A==}
     dev: false
 
   /statuses/1.5.0:
@@ -5118,6 +5193,11 @@ packages:
     hasBin: true
     dev: true
 
+  /ulid/2.3.0:
+    resolution: {integrity: sha512-keqHubrlpvT6G2wH0OEfSW4mquYRcbe/J8NMmveoQOjUqmo+hXtO+ORCpWhdbZ7k72UtY61BL7haGxW6enBnjw==, tarball: https://hub.chemaxon.com:443/artifactory/api/npm/npm/ulid/-/ulid-2.3.0.tgz}
+    hasBin: true
+    dev: false
+
   /universalify/0.1.2:
     resolution: {integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==}
     engines: {node: '>= 4.0.0'}
@@ -5383,7 +5463,6 @@ packages:
 
   /yallist/4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
-    dev: true
 
   /yaml/1.10.2:
     resolution: {integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==}
