@@ -257,6 +257,58 @@ services:
     networks:
       - nest_micro
 
+  logstash:
+    hostname: logstash
+    build:
+      context: docker/logstash/
+      args:
+        STACK_VERSION: $STACK_VERSION
+    container_name: nest_micro_logstash
+    # restart: always
+    command: logstash -f /usr/share/logstash/pipeline/logstash.conf
+    volumes:
+      - type: bind
+        source: ./docker/logstash/config/logstash.yml
+        target: /usr/share/logstash/config/logstash.yml
+        read_only: true
+      - type: bind
+        source: ./docker/logstash/pipeline
+        target: /usr/share/logstash/pipeline
+        read_only: true
+      - type: bind
+        source: ./docker/logstash/log
+        target: /usr/share/logstash/log
+        read_only: true
+    ports:
+      - "5000:5000/tcp"
+      - "5044:5044/tcp"
+      - "5000:5000/udp"
+      - "9600:9600"
+    # environment:
+    #   LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+    networks:
+      - nest_micro
+    depends_on:
+      - es01
+
+  # filebeat:
+  #   build:
+  #     context: docker/filebeat/
+  #     args:
+  #       STACK_VERSION: $STACK_VERSION
+  #   container_name: nest_micro_filebeat
+  #   # restart: always
+  #   volumes:
+  #     # needed to access all docker logs (read only) :
+  #     - "/var/lib/docker/containers:/usr/share/dockerlogs/data:ro"
+  #     # needed to access additional informations about containers
+  #     - "/var/run/docker.sock:/var/run/docker.sock"
+  #   depends_on:
+  #     - es01
+  #     - logstash
+  #   networks:
+  #     - nest_micro
+
 networks:
   nest_micro:
     driver: bridge
